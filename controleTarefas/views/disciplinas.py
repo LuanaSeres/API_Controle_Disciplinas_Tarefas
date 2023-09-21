@@ -8,19 +8,19 @@ from controleTarefas.serializers.disciplinas import DisciplinasSerializer
 class DisciplinaView(APIView):
 
     # o método GET busca informações sobre as disciplinas
-    def get(self, request, format=None):
+    def get(self, request, pk=None):
          # verifica se o id foi passado como parâmetro na URL
-        if id is not None:
+        if pk is not None:
             # tenta buscar uma disciplina pelo ID especificado
             try:
-                disciplina = DisciplinasEntidade.objects.get(pk=id)
+                disciplina = DisciplinasEntidade.objects.get(pk=pk)
                 serializer = DisciplinasSerializer(disciplina, many=False)
                 return Response(serializer.data)
             except DisciplinasEntidade.DoesNotExist:
                 # retorna uma resposta de erro se a disciplina não existir
                 return Response({'detail': 'Disciplina não existente'}, status=status.HTTP_400_BAD_REQUEST)
         else:
-            # se nenhum 'id' for especificado, busca todos as disciplinas
+            # se nenhuma pk for especificado, busca todos as disciplinas
             disciplina = DisciplinasEntidade.objects.all()
             serializer = DisciplinasSerializer(disciplina, many=True)
             return Response(serializer.data)
@@ -34,10 +34,10 @@ class DisciplinaView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     # o método PUT atualiza uma disciplina existente
-    def put(self, request, format=None):
+    def put(self, request, pk=None):
         # tenta buscar pelo ID especificado na solicitação
         try:
-            disciplina = DisciplinasEntidade.objects.get(pk=id)
+            disciplina = DisciplinasEntidade.objects.get(pk=pk)
         except DisciplinasEntidade.DoesNotExist:
             return Response({'detail': 'Disciplina não encontrada'}, status=status.HTTP_400_BAD_REQUEST)
         

@@ -8,12 +8,12 @@ from controleTarefas.serializers.tarefas import TarefasSerializer
 class TarefasView(APIView):
 
     # o método GET busca informações sobre as tarefas
-    def get(self, request, format=None):
+    def get(self, request, pk=None):
         # verifica se o id foi passado como parâmetro na URL
-        if id is not None:
+        if pk is not None:
             # tenta buscar uma tarefa pelo ID especificado
             try:
-                tarefas = TarefasEntidade.objects.get(pk=id)
+                tarefas = TarefasEntidade.objects.get(pk=pk)
                 serializer = TarefasSerializer(tarefas, many=False)
                 return Response(serializer.data)
             except TarefasEntidade.DoesNotExist:
@@ -34,10 +34,10 @@ class TarefasView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     # o método PUT atualiza uma tarefa existente
-    def put(self, request, format=None):
+    def put(self, request, pk=None):
         # tenta buscar pelo ID especificado na solicitação
         try:
-            tarefas = TarefasEntidade.objects.get(pk=id)
+            tarefas = TarefasEntidade.objects.get(pk=pk)
         except TarefasEntidade.DoesNotExist:
             return Response({'detail': 'Tarefa não encontrada'}, status=status.HTTP_400_BAD_REQUEST)
         
@@ -53,3 +53,4 @@ class TarefasView(APIView):
         tarefas = TarefasEntidade.objects.all()
         tarefas.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+    

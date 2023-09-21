@@ -6,10 +6,10 @@ from controleTarefas.models.tarefas import TarefasEntidade
 from controleTarefas.serializers.tarefas import TarefasSerializer
 
 class TarefaAlunoView(APIView):
-    def get (self, request, aluno_id):
+    def get (self, request, pk):
         #Busca o aluno pelo ID 
         try:
-            aluno = AlunosEntidade.objects. get (pk=aluno_id)
+            aluno = AlunosEntidade.objects. get (pk=pk)
         except AlunosEntidade.DoesNotExist:
             return Response({'detail': 'Aluno não encontrado'}, status=status.HTTP_404_NOT_FOUND)
         

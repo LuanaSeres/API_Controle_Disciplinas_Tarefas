@@ -8,19 +8,19 @@ from controleTarefas.serializers.alunos import AlunosSerializer
 class AlunosView(APIView):
 
     # o método GET busca informações sobre os alunos
-    def get(self, request, format=None):
+    def get(self, request, pk=None):
         # verifica se o id foi passado como parâmetro na URL
-        if id is not None:
+        if pk is not None:
             # tenta buscar um aluno pelo ID especificado
             try:
-                alunos = AlunosEntidade.objects.get(pk=id)
+                alunos = AlunosEntidade.objects.get(pk=pk)
                 serializer = AlunosSerializer(alunos, many=False)
                 return Response(serializer.data)
             except AlunosEntidade.DoesNotExist:
                 # retorna uma resposta de erro se o aluno não existir
                 return Response({'detail': 'Aluno não existente'}, status=status.HTTP_400_BAD_REQUEST)
         else:
-            # se nenhum 'id' for especificado, busca todos os alunos
+            # se nenhuma pk for especificado, busca todos os alunos
             alunos = AlunosEntidade.objects.all()
             serializer = AlunosSerializer(alunos, many=True)
             return Response(serializer.data)
@@ -34,10 +34,10 @@ class AlunosView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     # o método PUT atualiza um aluno existente
-    def put(self, request, format=None):
+    def put(self, request, pk=None):
         # tenta buscar pelo ID especificado na solicitação
         try:
-            alunos = AlunosEntidade.objects.get(pk=id)
+            alunos = AlunosEntidade.objects.get(pk=pk)
         except AlunosEntidade.DoesNotExist:
             return Response({'detail': 'Aluno não encontrado'}, status=status.HTTP_400_BAD_REQUEST)
         
