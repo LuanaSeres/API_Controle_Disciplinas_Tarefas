@@ -6,6 +6,13 @@ Esta API foi desenvolvida no intuito de fazer o gerenciamento de alunos, discipl
 - **Disciplina:** Representa uma disciplina com campos `nome` e `descricao`.
 - **Tarefa:** Representa uma tarefa com campos `titulo`, `descricao`, `data`, `completo`, associação há alunos `alunosTarefas`, associação há tarefas `disciplinasTarefas`.
 
+# Configuração do Ambiente
+1. Clone este repositório: `git clone <URL do repositório>`
+2.Crie um ambiente virtual: `python -m venv .env`
+3. Ative o ambiente virtual: `source .env/bin/activate` (Linux/macOS) ou `.env\Scripts\activate` (Windows)
+4. Instale as dependências: `pip install -r requirements.txt`
+5. Para rodar a aplicação: `python manage.py runserver`.
+
 # EndPoints da API
 1. Consulta de Alunos:
    - `/api/alunos/`: (metodo GET) Retorna a lista de todos os alunos.
