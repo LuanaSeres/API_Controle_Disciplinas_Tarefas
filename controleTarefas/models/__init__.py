@@ -1,3 +1,3 @@
-from .alunos import AlunosEntity
-from .disciplinas import DisciplinasEntity
-from .tarefas import TarefasEntity
+from .alunos import AlunosEntidade
+from .disciplinas import DisciplinasEntidade
+from .tarefas import TarefasEntidade

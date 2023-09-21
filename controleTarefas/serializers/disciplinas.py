@@ -1,7 +1,7 @@
 from rest_framework import serializers
-from controleTarefas.models.disciplinas import DisciplinasEntity
+from controleTarefas.models.disciplinas import DisciplinasEntidade
 
 class DisciplinasSerializer(serializers.Serializer):
     class Meta:
-        modelo = DisciplinasEntity
-        fiels = '__all__'
+        model = DisciplinasEntidade
+        fields = '__all__'

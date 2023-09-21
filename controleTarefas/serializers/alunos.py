@@ -1,7 +1,7 @@
 from rest_framework import serializers
-from controleTarefas.models.alunos import AlunosEntity
+from controleTarefas.models.alunos import AlunosEntidade
 
 class AlunosSerializer(serializers.Serializer):
     class Meta:
-        modelo = AlunosEntity
-        fiels = '__all__'
+        model = AlunosEntidade
+        fields = '__all__'
