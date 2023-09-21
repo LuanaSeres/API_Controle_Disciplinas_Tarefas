@@ -7,6 +7,7 @@ Esta API foi desenvolvida no intuito de fazer o gerenciamento de alunos, discipl
 - **Tarefa:** Representa uma tarefa com campos `titulo`, `descricao`, `data`, `completo`, associação há alunos `alunosTarefas`, associação há tarefas `disciplinasTarefas`.
 
 # Configuração do Ambiente
+No terminal:
 1. Clone este repositório: `git clone <URL do repositório>`.
 2.Crie um ambiente virtual: `python -m venv .env`.
 3. Ative o ambiente virtual: `source .env/bin/activate` (Linux/macOS) ou `.env\Scripts\activate` (Windows).
