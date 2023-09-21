@@ -23,7 +23,7 @@ Esta API foi desenvolvida no intuito de fazer o gerenciamento de alunos, discipl
    - `/api/alunos/<id>/`: (metodo DELETE) Permite a exclusão de um aluno específico com base no ID. Todas as tarefas associadas a esse aluno serão excluídas ou desassociadas.
 
 6. Busca de todas as tarefas de um determinado aluno:
-   - `/api/alunos/<id>/tarefas`: (medoto GET) Pr=ermite a busca de todas as tarefas de um único aluno 
+   - `/api/alunos/<id>/tarefas`: (medoto GET) Permite a busca de todas as tarefas de um único aluno 
   
 (as URLS permanecem as mesmas para diciplinas e tarefas, apenas com a alteração da palavra alunos por `disciplinas` e `tarefas`)
 
