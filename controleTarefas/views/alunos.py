@@ -34,7 +34,7 @@ class AlunosView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     # o método PUT atualiza um aluno existente
-    def put(self, request, pk):
+    def put(self, request, pk=None):
         # tenta buscar pelo ID especificado na solicitação
         try:
             alunos = AlunosEntidade.objects.get(pk=pk)
