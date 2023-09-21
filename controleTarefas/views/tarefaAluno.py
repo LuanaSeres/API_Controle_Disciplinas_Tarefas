@@ -14,6 +14,6 @@ class TarefaAlunoView(APIView):
             return Response({'detail': 'Aluno não encontrado'}, status=status.HTTP_404_NOT_FOUND)
         
         #Retorna todas tarefa com esse ID associado
-        tarefas = TarefasEntidade.objects.filter(aluno_delegado=aluno)
+        tarefas = TarefasEntidade.objects.filter(alunosTarefas_id=aluno)
         serializer = TarefasSerializer (tarefas, many=True)
         return Response(serializer.data)
