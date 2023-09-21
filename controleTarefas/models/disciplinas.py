@@ -2,7 +2,7 @@ from django.db import models
 
 class DisciplinasEntidade(models.Model):
     #define campos nome e descrição
-    nome = models.CharField(max=70)
+    nome = models.CharField(max_length=70)
     descrição = models.TextField()
 
     #construtor string

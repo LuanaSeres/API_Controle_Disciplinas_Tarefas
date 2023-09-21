@@ -2,8 +2,8 @@ from django.db import models
 
 class AlunosEntidade(models.Model):
     #define campos nome e email
-    nome = models.CharField(max=100)
-    email = models.CharField(max=200)
+    nome = models.CharField(max_length=100)
+    email = models.CharField(max_length=200)
 
     #construtor string
     def __str__(self) -> str:

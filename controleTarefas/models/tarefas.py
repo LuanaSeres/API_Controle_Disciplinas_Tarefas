@@ -1,11 +1,11 @@
 from django.db import models
 
-from models.alunos import AlunosEntidade
-from models.disciplinas import DisciplinasEntidade
+from controleTarefas.models.alunos import AlunosEntidade
+from controleTarefas.models.disciplinas import DisciplinasEntidade
 
 class TarefasEntidade(models.Model):
     #define campos titulo, descrição, data, completo
-    titulo = models.CharField(max=70)
+    titulo = models.CharField(max_length=70)
     descrição = models.TextField()
     data = models.DateTimeField()
     completo = models.BooleanField()
