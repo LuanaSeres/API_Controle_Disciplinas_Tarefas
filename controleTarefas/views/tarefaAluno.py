@@ -7,13 +7,13 @@ from controleTarefas.serializers.tarefas import TarefasSerializer
 
 class TarefaAlunoView(APIView):
     def get (self, request, pk):
-        #Busca o aluno pelo ID 
+        #Busca a tarefa pelo ID(pk) 
         try:
             aluno = AlunosEntidade.objects. get (pk=pk)
         except AlunosEntidade.DoesNotExist:
             return Response({'detail': 'Aluno não encontrado'}, status=status.HTTP_404_NOT_FOUND)
         
-        #Retorna todas tarefa com esse ID associado
+        #Retorna todas as tarefa com o aluno (ID) associado
         tarefas = TarefasEntidade.objects.filter(alunosTarefas_id=aluno)
         serializer = TarefasSerializer (tarefas, many=True)
         return Response(serializer.data)
